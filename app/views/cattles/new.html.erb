@@ -1,0 +1,31 @@
+
+
+<div class="flex flex-col justify-center mx-auto w-64 mt-8">
+  <h1 class="text-lg">New Cattle</h1>
+  <%= form_with(model: @cattle, url: cattles_path) do |form| %>
+    <div class="mt-2">
+      <%= form.label :eid %>
+      <div class="border">
+        <%= form.text_field :eid,  class: "outline-none" %>
+      </div>
+    </div>
+
+    <div>
+      <%= form.label :weight %>
+      <div class="border outline-none">
+        <%= form.text_field :weight, class: "outline-none" %>
+      </div>
+    </div>
+
+    <div>
+      <%= form.label :birthdate %>
+        <div class="border">
+          <%= form.date_field :birthdate,  class: "outline-none" %>
+        </div>
+    </div>
+
+    <div class="flex justify-center mt-2 bg-blue-400 rounded text-white py-1 hover:bg-blue-500">
+      <%= form.submit "Create Cattle" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+<!-- app/views/cattles/show.html.erb -->
+<div class="flex flex-col justify-center w-64 items-center">
+    <h1 class="text-3xl font-bold mb-4">Cattle Details</h1>
+
+    <div class="mb-4">
+    <strong>EID:</strong> <%= @cattle.eid %><br>
+    <strong>Weight:</strong> <%= @cattle.weight %><br>
+    <strong>Birthdate:</strong> <%= @cattle.birthdate %><br>
+    </div>
+
+    <%= link_to "Edit", edit_cattle_path(@cattle), class: "bg-blue-500 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 mb-2 rounded w-48" %>
+    <%= link_to "Back to Cattle List", cattles_path, class: "bg-gray-500 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded w-48" %>
+<div>

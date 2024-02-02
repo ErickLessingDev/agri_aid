@@ -1,0 +1,6 @@
+<!-- app/views/cattles/edit.html.erb -->
+<h1 class="text-3xl font-bold mb-4">Edit Cattle</h1>
+
+<%= render 'form', cattle: @cattle %>
+
+<%= link_to "Back to Cattle Details", cattle_path(@cattle), class: "bg-gray-500 hover:bg-gray-700 text-white font-bold my-2 py-2 px-4 rounded" %>
