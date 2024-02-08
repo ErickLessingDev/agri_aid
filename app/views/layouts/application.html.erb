@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>" role="alert">
+        <strong class="font-bold"><%= flash_title(key) %>:</strong>
+        <span class="block sm:inline"><%= value %></span>
+      </div>
+    <% end %>
     <div class="flex flex-col justify-center items-center my-8 mx-16">
       <%= yield %>
     </div>

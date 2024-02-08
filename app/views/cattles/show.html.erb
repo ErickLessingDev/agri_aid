@@ -1,13 +1,38 @@
 <!-- app/views/cattles/show.html.erb -->
-<div class="flex flex-col justify-center w-64 items-center">
+<div class="flex flex-col justify-center items-center">
     <h1 class="text-3xl font-bold mb-4">Cattle Details</h1>
 
     <div class="mb-4">
-    <strong>EID:</strong> <%= @cattle.eid %><br>
-    <strong>Weight:</strong> <%= @cattle.weight %><br>
-    <strong>Birthdate:</strong> <%= @cattle.birthdate %><br>
+        <strong>EID:</strong> <%= @cattle.eid %><br>
+        <strong>Weight:</strong> <%= @cattle.weight %><br>
+        <strong>Birthdate:</strong> <%= @cattle.birthdate %><br>
     </div>
 
     <%= link_to "Edit", edit_cattle_path(@cattle), class: "bg-blue-500 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 mb-2 rounded w-48" %>
     <%= link_to "Back to Cattle List", cattles_path, class: "bg-gray-500 hover:bg-gray-700 text-white text-center font-bold py-2 px-4 rounded w-48" %>
+
+    <h2 class="text-3xl font-bold my-4">Weight Records History</h2>
+
+    <table class="min-w-full divide-y divide-gray-200">
+    <thead>
+        <tr>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Recorded At</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Previous Weight</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">New Weight</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Weight Difference</th>
+        <!-- Add more table headers for other attributes as needed -->
+        </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+        <% @cattle.weight_records.each do |weight_record| %>
+        <tr>
+            <td class="px-6 py-4 whitespace-no-wrap"><%= weight_record.recorded_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+            <td class="px-6 py-4 whitespace-no-wrap"><%= weight_record.previous_weight %></td>
+            <td class="px-6 py-4 whitespace-no-wrap"><%= weight_record.new_weight %></td>
+            <td class="px-6 py-4 whitespace-no-wrap"><%= weight_record.weight_difference %></td>
+            <!-- Add more table cells for other attributes as needed -->
+        </tr>
+        <% end %>
+    </tbody>
+    </table>
 <div>

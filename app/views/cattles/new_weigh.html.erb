@@ -1,0 +1,27 @@
+<div class="flex flex-col justify-center mx-auto w-64 mt-8">
+    <h1 class="text-lg">New Weight Record</h1>
+
+    <%= form_with(model: [@cattle, @weight_record], url: weigh_cattle_path(@cattle), method: :post) do |form| %>
+
+        <div class="mt-2">
+            <%= form.label :new_weight %>
+            <div class="border">
+                <%= form.number_field :new_weight, class: "outline-none" %>
+            </div>
+        </div>
+
+        <div class="mt-2">
+            <%= form.label :recorded_at %>
+            <div class="border">
+                <%= form.datetime_field :recorded_at, class: "outline-none" %>
+            </div>
+        </div>
+
+        <!-- Add other form fields for weight_difference, etc. -->
+
+        <div class="flex justify-center mt-4">
+            <%= form.submit "Save", class: "bg-blue-400 rounded text-white py-1 px-4 hover:bg-blue-500" %>
+            <%= link_to "Back", cattles_path(@cattle), class: "ml-4 bg-gray-300 rounded text-gray-600 py-1 px-4 hover:bg-gray-400" %>
+        </div>
+    <% end %>
+</div>

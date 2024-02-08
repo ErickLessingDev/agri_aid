@@ -1,0 +1,12 @@
+<div class="flex flex-col my-16 justify-center items-center h-full">
+    
+    <%= form_with url: upload_csv_cattles_path, multipart: true do |form| %>
+        <div class="flex flex-col justify-center items-center w-full bg-white shadow rounded p-4 ">
+            <h1 class="text-3xl font-bold mb-4" >Upload CSV</h1>
+            <%= form.file_field :csv_file, class: "border rounded"%>
+            <%= form.submit "Upload CSV", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4" %>
+            <%= link_to "Back", "/cattles", class: "bg-gray-500 rounded text-white hover:bg-gray-600 mt-4  py-2 px-4" %>
+        </div>
+    <% end %>
+   
+</div>
